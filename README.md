@@ -50,4 +50,41 @@ const user: User = {
 };
 ```
 
+É possível atribuir tipos a métodos de Classes também:
+
+```typescript
+interface User {
+  name: string;
+  id: number;
+}
+
+class UserAccount {
+  name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+}
+
+const user: User = new UserAccount("Murphy", 1); // passando os parâmetros para a classe conforme os tipos esperados, `string` e `number`
+```
+
+(Posso estar errado, mas pareceu redundante o uso do TS para OOP)
+
+Ao criar funções, podemos fazer type annotations:
+
+```typescript
+function deleteUser(user: User) {
+  // ...
+}
+
+function getAdminUser(): User {
+  // ...
+}
+```
+
+No segundo exemplo, ficou claro que é como se declara uma função sem parâmetros usando o enforçamento de tipos da interface declarada anteriormente. Só não entendi no que isso será útil.
+
 # Parte 2/2: The TypeScript Handbook
