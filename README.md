@@ -168,7 +168,55 @@ interface Backpack<Type> {
 }
 ```
 
-Não entendi de primeira a ideia de criar os próprios tipos.
+Não entendi de primeira a ideia de criar os próprios tipos. Após ler a seção [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) da documentação oficial do TypeScript, entendi melhor.
+
+Uma função que retorna aquilo que é passado para ela é uma função de identidade
+
+```typescript
+function identity(arg: number): number {
+  return arg;
+}
+```
+
+No caso da função acima, ela espera um argumento do tipo `number` e (obviamente) também espera retornar um valor do tipo `number`.
+
+Uma função identidade que seja o mais genérica possível ficaria assim:
+
+```typescript
+function anyIdentity(arg: any): any {
+  return arg;
+}
+```
+
+Esta aciam espera qualquer tipo e retorna qualquer tipo.
+
+Em vez de esperar qualquer coisa como retorno, podemos capturar o argumento de tal forma que possamos denotar o que será retornado. Ou seja, define o que é retornar de acordo com o que você espera como argumento. Para isso, podemos usar um 'type variable', que é um tipo especial de variável que funciona com tipos em vez de valores. Exemplo abaixo:
+
+```typescript
+function genericsIdentity<Type>(arg: Type): Type {
+  return arg;
+}
+```
+
+No exemplo acima, o`<Type>` antes de `()` diz à função o que ela deve esperar como retorno. Já o `Type` antes de `{}` diz à função o tipo que ela espera no retorno.
+
+Segundo o que entendi, o primeiro e o segundo `Type` são redundantes, pois ambos se referem ao tipo do parâmetro que vai ser passado para a função ao chamá-la.
+
+Sabendo disso, podemos chamar essa função de duas formas:
+
+```typescript
+// forma um (sendo explícito):
+let output = genericsIdentity<string>("myString");
+
+// forma dois (usando inferência):
+let output = genericsIdentity("myString");
+```
+
+O jeito explícito de chamar a função informa à função que o argument `arg` será do tipo `string`.
+
+Mas, antes, para entender 100% o conceito de _generics_, é necessário não confundir parâmetros e argumentos.
+
+### Parâmetros _versus_ Argumentos
 
 # Bibliografia
 
