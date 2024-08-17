@@ -219,7 +219,7 @@ Mas, antes, para entender 100% o conceito de _generics_, é necessário não con
 
 ### Parâmetros _x_ Argumentos
 
-> [!NOTE]Parâmetros são variáveis nomeadas declaradas como **parte de uma função**. Eles são usados para referenciar argumentos passados para a função. Ou seja, quando passamos valores para uma função no momento de sua chamada, estamos passando argumentos.
+Parâmetros são variáveis nomeadas declaradas como **parte de uma função**. Eles são usados para referenciar argumentos passados para a função. Ou seja, quando passamos valores para uma função no momento de sua chamada, estamos passando argumentos.
 
 - Parâmetros são valores usados como referências abstratas na declaração da função
 - Argumentos são a materialização de valores passados para a função no momento da chamada
@@ -240,6 +240,24 @@ exampleFunction(argument1, argument2);
 - Parâmetros são os nomes listados na definição/declaração da função;
 - Argumentos são os valores reais passados para a função (na chamada);
 - Parâmetros são inicializados a partir dos valores fornecidos.
+
+Voltando aos generics, se queremos definir uma função que retorne o `.length` de um array de determinado `Type`, precisamos impor alguma restrição para que o compilador reconheça o método.
+
+```typescript
+// Então, em vez de:
+function loggingIdentity<Type>(arg: Type): Type {
+  console.log(arg.length);
+
+  return arg;
+}
+
+// Devemos usar:
+function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
+  console.log(arg.length);
+
+  return arg;
+}
+```
 
 # Bibliografia
 
