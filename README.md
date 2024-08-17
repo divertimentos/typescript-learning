@@ -157,7 +157,8 @@ _generics_ possibilitam que atribuamos tipos a valores em variáveis. Sendo meno
 ```typescript
 type StringArray = Array<string>;
 type NumberArray = Array<number>;
-type ObjectWithNameArray = Array<{ name: string }>; // <-- Este último ficou nebuloso. TODO: escrever um exemplo na prática pra entender
+type ObjectWithNameArray = Array<{ name: string }>; // <-- Este último ficou nebuloso.
+// TODO: escrever um exemplo na prática pra entender
 ```
 
 Usando genéricos, podemos declarar nossos próprios tipos, como esse Backpack:
