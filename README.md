@@ -6,8 +6,9 @@
   - [Defining Types](#defining-types)
   - [Composing Types](#composing-types)
     - [Unions](#unions)
-    - [literals](#literals)
-- [Parte 2/2: The TypeScript Handbook](#parte-22-the-typescript-handbook)
+    - [Literals](#literals)
+    - [Generics](#generics)
+    - [Parâmetros _x_ Argumentos](#parâmetros-x-argumentos)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
 
@@ -216,9 +217,31 @@ O jeito explícito de chamar a função informa à função que o argument `arg`
 
 Mas, antes, para entender 100% o conceito de _generics_, é necessário não confundir parâmetros e argumentos.
 
-### Parâmetros _versus_ Argumentos
+### Parâmetros _x_ Argumentos
+
+> [!NOTE]Parâmetros são variáveis nomeadas declaradas como **parte de uma função**. Eles são usados para referenciar argumentos passados para a função. Ou seja, quando passamos valores para uma função no momento de sua chamada, estamos passando argumentos.
+
+- Parâmetros são valores usados como referências abstratas na declaração da função
+- Argumentos são a materialização de valores passados para a função no momento da chamada
+
+```typescript
+// na declaração, parâmetros (valores referenciáveis):
+function exampleFunction(par1, par2) {
+  return `${par1}, ${par2}!`;
+}
+
+const argument1 = "Hello";
+const argument2 = "World";
+
+// na chamada, argumentos (valores reais):
+exampleFunction(argument1, argument2);
+```
+
+- Parâmetros são os nomes listados na definição/declaração da função;
+- Argumentos são os valores reais passados para a função (na chamada);
+- Parâmetros são inicializados a partir dos valores fornecidos.
 
 # Bibliografia
 
-- [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
-- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- [Parameter](https://developer.mozilla.org/en-US/docs/Glossary/Parameter)
