@@ -127,8 +127,6 @@ changingString = "Olá Mundo"; // <-- o tipo é 'string'
 const constantString = "Hello World"; // <-- o tipo é o literal 'Hello World'
 ```
 
-# Parte 2/2: The TypeScript Handbook
-
 # Bibliografia
 
 - [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
