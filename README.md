@@ -1,4 +1,5 @@
 <!--toc:start-->
+
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Types by Inference](#types-by-inference)
@@ -113,9 +114,11 @@ type MyBool = true | false;
 
 No caso acima, no entanto, a variável `MyBool` é do tipo `boolean`. É, cada linguagem vai assumir algumas coisas num certo nível de magia — no que, neste caso, não está errado de forma alguma.
 
-Mas, antes de prosseguir, uma breve contextualização sobre `literals`. Quando você atribui uma string a uma variável usando `let` e, posteriormente, sobre-escrever o valor por outra string, assume-se que a variável é do tipo string — o que é óbvio. No entanto, se você atribuir um valor, por exmeplo "helloWorld" a uma `const` chamada `greeting`, por exemplo (`const greeting = "helloWorld"`), dada a impossibilidade dessa `const` ter seu valor sobre-escrito, seu tipo não é mais `string`, e sim o literal `helloWorld`.
+Mas, antes de prosseguir, uma breve contextualização sobre `literals`.
 
 ### literals
+
+Quando você atribui uma string a uma variável usando `let` e, posteriormente, sobre-escrever o valor por outra string, assume-se que a variável é do tipo string — o que é óbvio. No entanto, se você atribuir um valor, por exmeplo "helloWorld" a uma `const` chamada `greeting`, por exemplo (`const greeting = "helloWorld"`), dada a impossibilidade dessa `const` ter seu valor sobre-escrito, seu tipo não é mais `string`, e sim o literal `helloWorld`.
 
 # Parte 2/2: The TypeScript Handbook
 
