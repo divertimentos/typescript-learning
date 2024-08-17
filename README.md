@@ -1,4 +1,6 @@
-# Typescript Learning
+# TypeScript Learning
+
+![ts banner (source: unknown)]()
 
 O TypeScript é um superset do JavaScript, o que significa que ele possui todas as features do JS, mais as suas próprias. Especificamente, o que o TS adiciona é uma lógica de tipos.
 
