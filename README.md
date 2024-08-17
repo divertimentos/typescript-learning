@@ -112,13 +112,20 @@ O union é parecido com o que nas PropTypes chamamos de `oneOf`
 type MyBool = true | false;
 ```
 
-No caso acima, no entanto, a variável `MyBool` é do tipo `boolean`. É, cada linguagem vai assumir algumas coisas num certo nível de magia — no que, neste caso, não está errado de forma alguma.
+No caso acima, no entanto, a variável `MyBool` é do tipo `boolean`. É, cada linguagem vai assumir algumas coisas num certo nível de magia — o que, neste caso, não está errado de forma alguma.
 
 Mas, antes de prosseguir, uma breve contextualização sobre `literals`.
 
 ### literals
 
 Quando você atribui uma string a uma variável usando `let` e, posteriormente, sobre-escrever o valor por outra string, assume-se que a variável é do tipo string — o que é óbvio. No entanto, se você atribuir um valor, por exmeplo "helloWorld" a uma `const` chamada `greeting`, por exemplo (`const greeting = "helloWorld"`), dada a impossibilidade dessa `const` ter seu valor sobre-escrito, seu tipo não é mais `string`, e sim o literal `helloWorld`.
+
+```typescript
+let changingString = "Hello World";
+changingString = "Olá Mundo"; // <-- o tipo é 'string'
+
+const constantString = "Hello World"; // <-- o tipo é o literal 'Hello World'
+```
 
 # Parte 2/2: The TypeScript Handbook
 
