@@ -116,9 +116,9 @@ No caso acima, no entanto, a variável `MyBool` é do tipo `boolean`. É, cada l
 
 Mas, antes de prosseguir, uma breve contextualização sobre `literals`.
 
-### literals
+### Literals
 
-Quando você atribui uma string a uma variável usando `let` e, posteriormente, sobre-escrever o valor por outra string, assume-se que a variável é do tipo string — o que é óbvio. No entanto, se você atribuir um valor, por exmeplo "helloWorld" a uma `const` chamada `greeting`, por exemplo (`const greeting = "helloWorld"`), dada a impossibilidade dessa `const` ter seu valor sobre-escrito, seu tipo não é mais `string`, e sim o literal `helloWorld`.
+Quando você atribui uma string a uma variável usando `let` e, posteriormente, sobre-escreve o valor por outra string, assume-se que a variável é do tipo string — o que é óbvio. No entanto, se você atribui um valor, por exmeplo "helloWorld" a uma `const` chamada `greeting`, por exemplo (`const greeting = "helloWorld"`), dada a impossibilidade dessa `const` ter seu valor sobre-escrito, seu tipo não é mais simplesmente `string`, e sim o literal `helloWorld`.
 
 ```typescript
 let changingString = "Hello World";
@@ -126,6 +126,30 @@ changingString = "Olá Mundo"; // <-- o tipo é 'string'
 
 const constantString = "Hello World"; // <-- o tipo é o literal 'Hello World'
 ```
+
+Voltando aos unions, utilizando o poder dos literals podemos criar um conjunto/set específico de valores imutáveis esperados:
+
+```typescript
+type WindowStates = "open" | "closed" | "hidden" | "minimized" | "restored";
+type LockStates = "locked" | "unlocked" | "breached";
+type PrimeNumbersUnderTen = 2 | 3 | 5 | 7;
+```
+
+Podemos usar unions para dizer a uma função que ela pode receber um parâmetro com mais de um tipo possível:
+
+```typescript
+// função normal
+function getLength() {
+  return obj.length;
+}
+
+// funcão tipada
+function getLength(obj: string | string[]) {
+  return obj.length;
+}
+```
+
+### Generics
 
 # Bibliografia
 
