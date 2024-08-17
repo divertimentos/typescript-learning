@@ -151,6 +151,26 @@ function getLength(obj: string | string[]) {
 
 ### Generics
 
+_generics_ possibilitam que atribuamos tipos a valores em variáveis. Sendo menos genérico na explicação (_no pun intended_), podemos restringir um array de conter qualquer tipo, para que contenha tipos que esperamos:
+
+```typescript
+type StringArray = Array<string>;
+type NumberArray = Array<number>;
+type ObjectWithNameArray = Array<{ name: string }>; // <-- Este último ficou nebuloso. TODO: escrever um exemplo na prática pra entender
+```
+
+Usando genéricos, podemos declarar nossos próprios tipos, como esse Backpack:
+
+```typescript
+interface Backpack<Type> {
+  add: (obj: Type) => void;
+  get: () => Type;
+}
+```
+
+Não entendi de primeira a ideia de criar os próprios tipos.
+
 # Bibliografia
 
 - [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
+- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
