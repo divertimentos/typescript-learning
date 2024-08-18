@@ -384,6 +384,8 @@ O TS mostrou esse erro antes mesmo de eu rodar o código. Assim que retornei meu
 
 **Agradeça ao TypeScript por existir**.
 
+## Explicit Types
+
 # Bibliografia
 
 - [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
