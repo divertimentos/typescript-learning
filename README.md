@@ -418,6 +418,8 @@ Quando não usamos tipos, o TS pode setar `any`, o que corresponderia a basicame
 
 Essa flag faz o compilador insistir que você trate variáveis com valores `null` ou `undefined`, o que é uma excelente decisão, especialmente se você vem diretamente do JS.
 
+## Everyday Tyipes
+
 # Bibliografia
 
 - [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
