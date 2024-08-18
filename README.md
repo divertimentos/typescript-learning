@@ -190,7 +190,7 @@ function anyIdentity(arg: any): any {
 }
 ```
 
-Esta aciam espera qualquer tipo e retorna qualquer tipo.
+Esta acima espera qualquer tipo e retorna qualquer tipo.
 
 Em vez de esperar qualquer coisa como retorno, podemos capturar o argumento de tal forma que possamos denotar o que será retornado. Ou seja, define o que é retornar de acordo com o que você espera como argumento. Para isso, podemos usar um 'type variable', que é um tipo especial de variável que funciona com tipos em vez de valores. Exemplo abaixo:
 
@@ -260,7 +260,64 @@ function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
 }
 ```
 
+A função acima espera como argumento um `Type` cujo valor seja enumerável, pois ela espera como retorno `Array<Type>`. Isso expica por que o compilador aceita o método `.length`. Abaixo outro exemplo do funcionamento dos generics, agora usando uma classe.
+
+```typescript
+class Victarion<T> {
+  private value: T;
+
+  constructor(value: T) {
+    this.value = value;
+  }
+
+  getValue(): T {
+    return this.value;
+  }
+}
+
+const numberBox = new Victarion<number>(42);
+const stringBox = new Victarion<string>("oibebe");
+const booleanBox = new Victarion<boolean>(true);
+
+numberBox.getValue(); // 42
+stringBox.getValue(); // oibebe
+booleanBox.getValue(); // true
+```
+
+### Structural Type System (aka Duck Typing)
+
+O TypeScript é adepto do Duck Typing, conceito que diz que se você nada como um pato, nada como um pato, anda como um pato e grasna como um pato, **então você é um pato**. No Duck Typing, se dois objetos possuem o mesmo formato, logo eles são do mesmo tipo.
+
+```typescript
+interface Point {
+  x: number;
+  y: number;
+}
+
+function logPoint(p: Point) {
+  console.log(`${p.x}, ${p.y}`);
+}
+
+const point = { x: 12, y: 26 };
+
+logPoint(point); // "12, 26"
+```
+
+No exemplo acima, o compilador do TS aceita o parâmetro `p`, que recebe a interface `Point`, pois suas duas propriedades manifestadas através dos argumentos `x` e `y` são do tipo `number`. O duck typing do TS aceita o shape da interface mesmo se ela corresponder a um subconjunto o argumento passado para a função, desde que haja match perfeito:
+
+```typescript
+const point3 = { x: 12, y: 26, z: 89 };
+logPoint(point3); // logs "12, 26"
+
+const rect = { x: 33, y: 3, width: 30, height: 80 };
+logPoint(rect); // logs "33, 3"
+
+const color = { hex: "#187ABF" };
+logPoint(color); // xxx erro de missing properties xxx
+```
+
 # Bibliografia
 
-- [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
+- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - [Parameter](https://developer.mozilla.org/en-US/docs/Glossary/Parameter)

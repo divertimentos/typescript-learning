@@ -1,10 +1,5 @@
 console.clear();
 
-interface Backpack<Type> {
-  add: (obj: Type) => void;
-  get: () => Type;
-}
-
 // Hello World of Generics
 
 function getLength(arg: string): number {
@@ -23,22 +18,31 @@ function getLength(arg: string): number {
 //   }
 // }
 
-class Box<T> {
-  private value: T;
+// class Victarion<T> {
+//   private value: T;
+//
+//   constructor(value: T) {
+//     this.value = value;
+//   }
+//
+//   getValue(): T {
+//     return this.value;
+//   }
+// }
+//
+// const numberBox = new Victarion<number>(42);
+// const stringBox = new Victarion<string>("oibebe");
+// const booleanBox = new Victarion<boolean>(true);
+//
+// console.log(numberBox.getValue()); // 42
+// console.log(stringBox.getValue()); // oibebe
+// console.log(booleanBox.getValue()); // true
 
-  constructor(value: T) {
-    this.value = value;
-  }
-
-  getValue(): T {
-    return this.value;
-  }
-}
-
-const numberBox = new Box<number>(42);
-const stringBox = new Box<string>("oibebe");
-const booleanBox = new Box<boolean>(true);
-
-console.log(numberBox.getValue()); // 42
-console.log(stringBox.getValue()); // oibebe
-console.log(booleanBox.getValue()); // true
+// Devemos usar:
+// function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
+//   console.log(arg.length);
+//
+//   return arg;
+// }
+//
+// console.log(loggingIdentity<string>(["oi", "oibebe", "sorria", "detonautas"]));
