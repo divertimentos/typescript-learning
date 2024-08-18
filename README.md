@@ -9,6 +9,7 @@
     - [Literals](#literals)
     - [Generics](#generics)
     - [Parâmetros _x_ Argumentos](#parâmetros-x-argumentos)
+    - [Structural Type System (aka Duck Typing)](#structural-type-system-aka-duck-typing)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
 
@@ -315,6 +316,8 @@ logPoint(rect); // logs "33, 3"
 const color = { hex: "#187ABF" };
 logPoint(color); // xxx erro de missing properties xxx
 ```
+
+# Parte (2/2): The TypeScript Handbook
 
 # Bibliografia
 
