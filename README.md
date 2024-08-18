@@ -1,13 +1,3 @@
----
-title: TypeScript para
-published: false
-description: Resumo das minhas anotações sobre TS
-tags: typescript, javascript, js, ts, documentation, learn in public
-# cover_image: https://direct_url_to_image.jpg
-# Use a ratio of 100:42 for best results.
-# published_at: 2024-08-18 15:20 +0000
----
-
 <!--toc:start-->
 
 - [TypeScript Learning](#typescript-learning)
