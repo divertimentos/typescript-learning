@@ -1,5 +1,4 @@
 <!--toc:start-->
-
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Types by Inference](#types-by-inference)
@@ -16,9 +15,12 @@
   - [Non-exception failures](#non-exception-failures)
   - [Types for Tooling](#types-for-tooling)
   - [Explicit Types](#explicit-types)
+  - [Erased Types](#erased-types)
+  - [Downleveling](#downleveling)
   - [Strictness](#strictness)
     - [`noImplicitAny`](#noimplicitany)
     - [`strictNullChecks`](#strictnullchecks)
+  - [Everyday Tyipes](#everyday-tyipes)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
 
