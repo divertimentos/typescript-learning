@@ -11,13 +11,16 @@
     - [Parâmetros _x_ Argumentos](#parâmetros-x-argumentos)
     - [Structural Type System (aka Duck Typing)](#structural-type-system-aka-duck-typing)
 - [Parte (2/2): The TypeScript Handbook](#parte-22-the-typescript-handbook)
+  - [The Basics](#the-basics)
+  - [Static Type-Checking](#static-type-checking)
+  - [Non-exception failures](#non-exception-failures)
+  - [Types for Tooling](#types-for-tooling)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
 
 # TypeScript Learning
 
 ![ts banner (source: unknown)](https://github.com/divertimentos/typescript-learning/blob/main/media/ts-banner.jpeg)
-(Source: unknown)
 
 O TypeScript é um superset do JavaScript, o que significa que ele possui todas as features do JS, mais as suas próprias. Especificamente, o que o TS adiciona é uma lógica de tipos.
 
@@ -315,8 +318,75 @@ logPoint(color); // xxx erro de missing properties xxx
 
 # Parte (2/2): The TypeScript Handbook
 
+## The Basics
+
+- A vantagem do TS sobre o JS é tornar o código mais previsível antes da compilação, no que tange a tipos.
+
+Segundo a documentação oficial, "'tipar' é descrever quais valores podem ser passados para determinada função e quais podem quebrá-la". **Como o JS faz tipagem dinâmica, só é possível descobrir se uma função quebra quando ela quebra**. A vantagem do TS, então, é assegurar a checagem de tipos pré-compilação, através da **tipagem estática**.
+
+## Static Type-Checking
+
+- A checagem de tipos estática é uma ferramenta na escrita de código que se alia aos testes, no sentido de evitar bugs que podemos não ter a sorte de prever ou testemunhar. Erros como o abaixo,
+
+```typescript
+message.toLowerCase(); // ✅ --> "hello"
+
+message(); // ❌ --> "This expression is not callable. Type 'String' has no call signatures"
+```
+
+em que não sabemos se `message` é uma função, ou mesmo se ela possui o método `toLowerCase()` antes de testarmos na prática.
+
+## Non-exception failures
+
+Um ponto fraco da tipagem estática é não poder prever se uma propriedade existe em um objeto antes de chamá-la. O TS retorna um `undefined` e segue em frente:
+
+```javascript
+const user = {
+  name: "Morgoth",
+  age: 6500,
+};
+
+user.location; // returns undefined
+```
+
+Já o TS fica bravo:
+
+```typescript
+const user = {
+  name: "Morgoth",
+  age: 6500,
+};
+
+user.location; // ❌ --> "Property 'location' does not exist on type '{name: string; age: number;}.'"
+```
+
+Reconhecidamente, o fato do JS ignorar erros como esse é uma de suas grandes features e também um de seus Calcanhares de Aquiles. No entanto, o checador de tipos do TS é capaz de encontrar typos (erros de digitação) e também erros de lógica.
+
+```typescript
+function flipCoin() {
+  return Math.random < 0.5; // ❌ --> Operator '<' cannot be applied to types '() => number' and 'number';
+}
+```
+
+## Types for Tooling
+
+O TS pode nos ajudar a prevenir erros antes mesmo deles serem escritos. O type-checker nos informa quais são as propriedades possíveis de objetos. Isso é o que os desenvolvedores costumam chamar de o 'tooling do TypeScript'. O seu LSP também faz outras ✨ magias ✨, como quick fixes, refatorações, organização inteligente de código, features de navegação, localização de referências. Quem já utiliza o LSP do TS no VSCode, por exmeplo, tem acesso a algumas dessas features do TS, mesmo que esteja programando dm JavaScript (ou JSX etc.).
+
+```typescript
+function greet(person, date) {
+  console.log(`Hello, ${person}. Today is ${date}!`);
+}
+
+greet("Brendan"); // ❌ --> Expected 2 arguments, but got 1.
+```
+
+O TS mostrou esse erro antes mesmo de eu rodar o código. Assim que retornei meu Vim do Insert Mode pro Normal Mode, o checador demonstrou seu poder.
+
+**Agradeça ao TypeScript por existir**.
+
 # Bibliografia
 
 - [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
 - [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - [Parameter](https://developer.mozilla.org/en-US/docs/Glossary/Parameter)
+- [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
