@@ -1,5 +1,4 @@
 <!--toc:start-->
-
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Types by Inference](#types-by-inference)
@@ -15,6 +14,10 @@
   - [Static Type-Checking](#static-type-checking)
   - [Non-exception failures](#non-exception-failures)
   - [Types for Tooling](#types-for-tooling)
+  - [Explicit Types](#explicit-types)
+  - [Strictness](#strictness)
+    - [`noImplicitAny`](#noimplicitany)
+    - [`strictNullChecks`](#strictnullchecks)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
 
