@@ -386,6 +386,33 @@ O TS mostrou esse erro antes mesmo de eu rodar o código. Assim que retornei meu
 
 ## Explicit Types
 
+Quando explicitamos os tipos fazendo _type annotations_, estamos usando a feature mais básica do TS, que é dizer para uma função quais tipos de valores ela aceita e retorna. No caso da função `greet()`, munida de tipos ela fica assim:
+
+```typescript
+function greet(person: string, date: Date) {
+  console.log(`Hello, ${person}. Today is ${date.toDateString()}!`);
+}
+
+## Erased Types
+
+Quando usamos o `tsc` para compilar código TS, ele transpila para JS. Nesse processo, boa parte do código TS é apagado e transformado em JS, mas de uma forma que atenda à estrita redução de redundâncias que um código estaticamente tipado requer.
+
+## Downleveling
+
+O transpilador do TS é setado para automaticamente converter o seu código em uma versão do JS que seja o mais compatível possível, ou seja, ES3. Para setar o `tsc` para outra versão do ECMAScript, você pode usar o argumento `--target`: `tsc --target es2015 hello.ts`.
+
+```
+
+## Strictness
+
+É possível configurar a "rigorosidade" (_strictness_) do compilador do TS a fim de que ele atenda aos interesses de diferentes tipos de programador. Você pode ser meramente alguém em busca de uma experiência _opt-in_ de tipagem conforme necessário for, com os benefícios do tooling que a linguagem oferece. E esse perfil de usuário de TS é o mais comum. Conforme dor necessário, você pode ir fazendo um "_dial-in_" nas features através do `tsconfig.json`. Duas configurações de _dial-in_ são as mais importantes, `noImplicitAny` e `strictNullChecks`.
+
+### `noImplicitAny`
+
+Quando não usamos tipos, o TS pode setar `any`, o que corresponderia a basicamente usar JS. Habilitando essa opção, o TS fica mais estrito e vai insistir que você identifique os tipos das variáveis declaradas, a fim de evitar erros e bugs comuns do JavaScript.
+
+### `strictNullChecks`
+
 # Bibliografia
 
 - [Literal Types in TS](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)

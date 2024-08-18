@@ -1,5 +1,9 @@
-function greet(person, date) {
-  console.log(`Hello, ${person}. Today is ${date}!`);
+// function greet(person, date) {
+//   console.log(`Hello, ${person}. Today is ${date}!`);
+// }
+
+function greetWithTypeAnnotation(person: string, date: Date) {
+  console.log(`Hello, ${person}. Today is ${date.toDateString()}!`);
 }
 
-// greet("Brandon");
+greetWithTypeAnnotation("Galadriel", new Date());
