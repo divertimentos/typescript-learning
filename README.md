@@ -1,4 +1,5 @@
 <!--toc:start-->
+
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Types by Inference](#types-by-inference)
@@ -395,6 +396,7 @@ Quando explicitamos os tipos fazendo _type annotations_, estamos usando a featur
 function greet(person: string, date: Date) {
   console.log(`Hello, ${person}. Today is ${date.toDateString()}!`);
 }
+```
 
 ## Erased Types
 
@@ -403,8 +405,6 @@ Quando usamos o `tsc` para compilar código TS, ele transpila para JS. Nesse pro
 ## Downleveling
 
 O transpilador do TS é setado para automaticamente converter o seu código em uma versão do JS que seja o mais compatível possível, ou seja, ES3. Para setar o `tsc` para outra versão do ECMAScript, você pode usar o argumento `--target`: `tsc --target es2015 hello.ts`.
-
-```
 
 ## Strictness
 
