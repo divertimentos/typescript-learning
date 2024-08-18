@@ -7,7 +7,7 @@
   - [Composing Types](#composing-types)
     - [Unions](#unions)
     - [Literals](#literals)
-    - [Generics](#generics)
+    - [generics](#generics)
     - [Parâmetros _x_ Argumentos](#parâmetros-x-argumentos)
     - [Structural Type System (aka Duck Typing)](#structural-type-system-aka-duck-typing)
 - [Bibliografia](#bibliografia)
@@ -86,8 +86,6 @@ class UserAccount {
 const user: User = new UserAccount("Murphy", 1); // passando os parâmetros para a classe conforme os tipos esperados, `string` e `number`
 ```
 
-(Posso estar errado, mas pareceu redundante o uso do TS para OOP)
-
 Ao criar funções, podemos fazer type annotations:
 
 ```typescript
@@ -99,8 +97,6 @@ function getAdminUser(): User {
   // ...
 }
 ```
-
-No segundo exemplo, ficou claro que é como se declara uma função sem parâmetros usando o enforçamento de tipos da interface declarada anteriormente. Só não entendi no que isso será útil.
 
 ## Composing Types
 
@@ -151,18 +147,17 @@ function getLength(obj: string | string[]) {
 }
 ```
 
-### Generics
+### _generics_
 
-_generics_ possibilitam que atribuamos tipos a valores em variáveis. Sendo menos genérico na explicação (_no pun intended_), podemos restringir um array de conter qualquer tipo, para que contenha tipos que esperamos:
+**_generics_** possibilitam que atribuamos tipos a valores em variáveis. Sendo menos genérico na explicação (_no pun intended_), podemos restringir um array de conter qualquer tipo, para que contenha tipos que esperamos:
 
 ```typescript
 type StringArray = Array<string>;
 type NumberArray = Array<number>;
-type ObjectWithNameArray = Array<{ name: string }>; // <-- Este último ficou nebuloso.
-// TODO: escrever um exemplo na prática pra entender
+type ObjectWithNameArray = Array<{ name: string }>;
 ```
 
-Usando genéricos, podemos declarar nossos próprios tipos, como esse Backpack:
+Usando **generics**, podemos declarar nossos próprios tipos, como esse Backpack:
 
 ```typescript
 interface Backpack<Type> {
@@ -217,7 +212,7 @@ let output = genericsIdentity("myString");
 
 O jeito explícito de chamar a função informa à função que o argument `arg` será do tipo `string`.
 
-Mas, antes, para entender 100% o conceito de _generics_, é necessário não confundir parâmetros e argumentos.
+Mas, antes, para entender 100% o conceito de **_generics_**, é necessário não confundir parâmetros e argumentos.
 
 ### Parâmetros _x_ Argumentos
 
@@ -243,7 +238,7 @@ exampleFunction(argument1, argument2);
 - Argumentos são os valores reais passados para a função (na chamada);
 - Parâmetros são inicializados a partir dos valores fornecidos.
 
-Voltando aos generics, se queremos definir uma função que retorne o `.length` de um array de determinado `Type`, precisamos impor alguma restrição para que o compilador reconheça o método.
+Voltando aos _generics_, se queremos definir uma função que retorne o `.length` de um array de determinado `Type`, precisamos impor alguma restrição para que o compilador reconheça o método.
 
 ```typescript
 // Então, em vez de:
@@ -261,7 +256,7 @@ function loggingIdentity<Type>(arg: Array<Type>): Array<Type> {
 }
 ```
 
-A função acima espera como argumento um `Type` cujo valor seja enumerável, pois ela espera como retorno `Array<Type>`. Isso expica por que o compilador aceita o método `.length`. Abaixo outro exemplo do funcionamento dos generics, agora usando uma classe.
+A função acima espera como argumento um `Type` cujo valor seja enumerável, pois ela espera como retorno `Array<Type>`. Isso expica por que o compilador aceita o método `.length`. Abaixo outro exemplo do funcionamento dos _generics_, agora usando uma classe.
 
 ```typescript
 class Victarion<T> {
