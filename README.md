@@ -20,7 +20,7 @@
   - [Strictness](#strictness)
     - [`noImplicitAny`](#noimplicitany)
     - [`strictNullChecks`](#strictnullchecks)
-  - [Everyday Tyipes](#everyday-tyipes)
+  - [Everyday Types](#everyday-types)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
 
