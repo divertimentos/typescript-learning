@@ -1,4 +1,5 @@
 <!--toc:start-->
+
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Tipos por Inferência](#tipos-por-inferência)
@@ -421,6 +422,11 @@ Quando não usamos tipos, o TS pode setar `any`, o que corresponderia a basicame
 Essa flag faz o compilador insistir que você trate variáveis com valores `null` ou `undefined`, o que é uma excelente decisão, especialmente se você vem diretamente do JS.
 
 ## Tipos do dia a dia
+
+- O JS possui três tipos primitivos: `string`, `number` e `boolean`
+- Para espcificar um array de números, use `number[]` (ou `Array<number>`)
+- Para array de strings, `string[]` (ou `Array<string>`)
+- O TS possui também o tipo `any`, que é quando um tipo não estiver especificado.
 
 # Bibliografia
 
