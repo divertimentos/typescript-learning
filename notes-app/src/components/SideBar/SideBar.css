@@ -1,0 +1,36 @@
+.sidebar {
+  width: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar__add-img {
+  /* margin-top: 50px; */
+  width: 55px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.sidebar__colorlist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  height: 0;
+  transition: 500ms ease-in-out;
+}
+
+.sidebar__colorlist_active {
+  height: 300px;
+}
+
+.sidebar__colorlist_color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  list-style-type: none;
+  cursor: pointer;
+}
