@@ -432,7 +432,7 @@ Essa flag faz o compilador insistir que você trate variáveis com valores `null
 # Projetos de exemplo neste repositório
 
 - [TypeScript Sample Project](https://github.com/divertimentos/typescript-learning/tree/main/typescript-sample)
-- [Notes App](https://github.com/divertimentos/typescript-learning/tree/main/typescript-sample)
+- [Notes App](https://github.com/divertimentos/typescript-learning/tree/main/notes-app)
 
 # Bibliografia
 
