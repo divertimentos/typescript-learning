@@ -1,4 +1,5 @@
 <!--toc:start-->
+
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Tipos por Inferência](#tipos-por-inferência)
@@ -431,6 +432,7 @@ Essa flag faz o compilador insistir que você trate variáveis com valores `null
 # Projetos de exemplo neste repositório
 
 - [TypeScript Sample Project](https://github.com/divertimentos/typescript-learning/tree/main/typescript-sample)
+- [Notes App](https://github.com/divertimentos/typescript-learning/tree/main/typescript-sample)
 
 # Bibliografia
 
