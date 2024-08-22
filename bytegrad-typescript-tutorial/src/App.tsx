@@ -6,7 +6,7 @@ function App() {
     <>
       <h1>ByteGrad TS Tutorial</h1>
       <div className="card">
-        <Button backgroundColor="cornflowerblue" fontSize={30} />
+        <Button>Click Me</Button>
       </div>
     </>
   );
