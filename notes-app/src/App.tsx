@@ -2,7 +2,15 @@ import { useState } from "react";
 import "./App.css";
 import SideBar from "./components/SideBar/Sidebar";
 
-const DUMMY_NOTES = [
+interface Dummy {
+  id: string;
+  text: string;
+  time: string;
+  color: string;
+  lock: boolean;
+}
+
+const DUMMY_NOTES: Dummy[] = [
   {
     id: "n3",
     text: "Hey there, Add your note by clicking the plus icon and choosing the theme color",
