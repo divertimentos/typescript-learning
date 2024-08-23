@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import SideBar from "./components/SideBar/Sidebar";
 
@@ -39,6 +39,10 @@ const App = () => {
     // JSON.parse(localStorage.getItem("react-notes-app")) || DUMMY_NOTES,
     DUMMY_NOTES,
   );
+
+  useEffect(() => {
+    console.log(notes);
+  }, [notes]);
 
   return (
     <>

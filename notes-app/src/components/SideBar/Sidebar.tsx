@@ -12,8 +12,16 @@ const colorList = [
 ];
 
 interface SideBarProps {
-  // setNotes: (arg0: string[]) => void;
-  setNotes: (note: object[]) => object[];
+  setNotes: (arg0: INotesObject[]) => void;
+  // setNotes: (note: object[]) => object[];
+}
+
+interface INotesObject {
+  id: string;
+  text: string;
+  time: string;
+  color: string;
+  lock: boolean;
 }
 
 const SideBar = ({ setNotes }: SideBarProps) => {
@@ -34,7 +42,9 @@ const SideBar = ({ setNotes }: SideBarProps) => {
       lock: false,
     };
 
-    setNotes((prevNotes: object[]) => {
+    setNotes((prevNotes) => {
+      // console.log("prevNotes:");
+      // console.log(prevNotes);
       return [note, ...prevNotes];
     });
   };
