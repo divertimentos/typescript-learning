@@ -22,6 +22,10 @@
     - [`noImplicitAny`](#noimplicitany)
     - [`strictNullChecks`](#strictnullchecks)
   - [Tipos do dia a dia](#tipos-do-dia-a-dia)
+    - [Tipos primitivos](#tipos-primitivos)
+    - [Arrays](#arrays)
+    - [Type Annotations em variáveis](#type-annotations-em-variáveis)
+    - [Funções](#funções)
 - [Projetos de exemplo neste repositório](#projetos-de-exemplo-neste-repositório)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
@@ -424,10 +428,32 @@ Essa flag faz o compilador insistir que você trate variáveis com valores `null
 
 ## Tipos do dia a dia
 
+### Tipos primitivos
+
 - O JS possui três tipos primitivos: `string`, `number` e `boolean`
 - Para espcificar um array de números, use `number[]` (ou `Array<number>`)
 - Para array de strings, `string[]` (ou `Array<string>`)
 - O TS possui também o tipo `any`, que é quando um tipo não estiver especificado.
+
+### Arrays
+
+- Para especificar um array de números como `[1, 2, 3, 4, 5]`, use `number[]`. Eu leio mentalmente isso como "number array" para facilitar a mnemônica. Parra arrays de strings, mesma coisa: `string[]`.
+
+### Type Annotations em variáveis
+
+Simples. Basta tipar após o nome da variável.
+
+```typescript
+var hello: string = "world";
+let areYouLearning: boolean = true;
+const ultimateAnswer: number = 42;
+```
+
+O TS assume implicitamente tipos em variáveis, então você não precisa se preocupar com eles na maior parte do tempo.
+
+### Funções
+
+As funções são onde o TypeScript brilha. São elas que você precisa tipar na maior parte do tempo. Entendi por que a galera de ReactJS gosta tanto de TS: é porque no ReactJS tudo é função e no JS tudo é objeto.
 
 # Projetos de exemplo neste repositório
 
