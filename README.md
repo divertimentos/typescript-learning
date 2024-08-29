@@ -26,6 +26,11 @@
     - [Arrays](#arrays)
     - [Type Annotations em variáveis](#type-annotations-em-variáveis)
     - [Funções](#funções)
+      - [Type Annotations nos parâmetros](#type-annotations-nos-parâmetros)
+    - [Type annotation no retorno](#type-annotation-no-retorno)
+      - [Funções que retornam Promises](#funções-que-retornam-promises)
+    - [Funções anônimas](#funções-anônimas)
+  - [Tipando objetos](#tipando-objetos)
 - [Projetos de exemplo neste repositório](#projetos-de-exemplo-neste-repositório)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
@@ -454,6 +459,60 @@ O TS assume implicitamente tipos em variáveis, então você não precisa se pre
 ### Funções
 
 As funções são onde o TypeScript brilha. São elas que você precisa tipar na maior parte do tempo. Entendi por que a galera de ReactJS gosta tanto de TS: é porque no ReactJS tudo é função e no JS tudo é objeto.
+
+#### Type Annotations nos parâmetros
+
+- Tipamos parâmetros para definir o que uma função aceita.
+
+```typescript
+function greet(name: string, years: number) {
+  return `My name is ${name} and I have ${years} old!`;
+}
+
+greet("Galadriel", 5600);
+```
+
+### Type annotation no retorno
+
+```typescript
+function getFavoriteNumber(): number {
+  return 42;
+}
+```
+
+Os type annotations em retorno são menos comuns, assim como a tipagem de variável. O TS também costuma inferir essas informações.
+
+#### Funções que retornam Promises
+
+Se a sua função retorna uma Promise, assinale o tipo Promise no retorno.
+
+```typescript
+async function fetchNumber(): Promise<number> {
+  return 26;
+}
+```
+
+### Funções anônimas
+
+O TS vai tentar inferir os tipos nas funções anônimas.
+
+```typescript
+const names = ["Glorfindel", "Victarion", "Mitsurugi"];
+
+names.forEach(function (str) {
+  console.log(str.toUpperCase());
+});
+
+// O TS vai inferir que o parâmetro é do tipo string. Funciona para arrow functions também:
+
+names.forEach((name) => {
+  console.log(name.toUpperCase());
+});
+```
+
+## Tipando objetos
+
+Logo após os tipos primitivos, são os tipos com os quais mais se lida ao usar TypeScript, pois eles correspondem a qualquer valor em JS que possua propriedade.
 
 # Projetos de exemplo neste repositório
 
