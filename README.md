@@ -516,9 +516,9 @@ Logo após os tipos primitivos, são os tipos com os quais mais se lida ao usar 
 
 # Projetos de exemplo neste repositório
 
-- [TypeScript Sample Project](https://github.com/divertimentos/typescript-learning/tree/main/typescript-sample)
-- [Notes App](https://github.com/divertimentos/typescript-learning/tree/main/notes-app)
-- [Bytegrad Tutorial Files](https://github.com/divertimentos/typescript-learning/tree/main/bytegrad-typescript-tutorial)
+- [TypeScript Sample Project](https://github.com/divertimentos/typescript-learning/tree/main/example-projects/typescript-sample)
+- [Notes App](https://github.com/divertimentos/typescript-learning/tree/main/example-projects/notes-app)
+- [Bytegrad Tutorial Files](https://github.com/divertimentos/typescript-learning/tree/main/example-projects/bytegrad-typescript-tutorial)
 
 # Bibliografia
 
