@@ -1,5 +1,4 @@
 <!--toc:start-->
-
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Tipos por Inferência](#tipos-por-inferência)
@@ -27,10 +26,14 @@
     - [Type Annotations em variáveis](#type-annotations-em-variáveis)
     - [Funções](#funções)
       - [Type Annotations nos parâmetros](#type-annotations-nos-parâmetros)
-    - [Type annotation no retorno](#type-annotation-no-retorno)
-      - [Funções que retornam Promises](#funções-que-retornam-promises)
-    - [Funções anônimas](#funções-anônimas)
+      - [Type annotation no retorno](#type-annotation-no-retorno)
+        - [Funções que retornam Promises](#funções-que-retornam-promises)
+      - [Funções anônimas](#funções-anônimas)
   - [Tipando objetos](#tipando-objetos)
+    - [Propriedades opcionais (`?`)](#propriedades-opcionais)
+  - [Union Types](#union-types)
+    - [Definição vagamente matemática](#definição-vagamente-matemática)
+    - [Trabalhando com Unions](#trabalhando-com-unions)
 - [Projetos de exemplo neste repositório](#projetos-de-exemplo-neste-repositório)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
