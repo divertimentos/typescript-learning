@@ -472,7 +472,7 @@ function greet(name: string, years: number) {
 greet("Galadriel", 5600);
 ```
 
-### Type annotation no retorno
+#### Type annotation no retorno
 
 ```typescript
 function getFavoriteNumber(): number {
@@ -482,7 +482,7 @@ function getFavoriteNumber(): number {
 
 Os type annotations em retorno são menos comuns, assim como a tipagem de variável. O TS também costuma inferir essas informações.
 
-#### Funções que retornam Promises
+##### Funções que retornam Promises
 
 Se a sua função retorna uma Promise, assinale o tipo Promise no retorno.
 
@@ -492,7 +492,7 @@ async function fetchNumber(): Promise<number> {
 }
 ```
 
-### Funções anônimas
+#### Funções anônimas
 
 O TS vai tentar inferir os tipos nas funções anônimas.
 
@@ -513,6 +513,53 @@ names.forEach((name) => {
 ## Tipando objetos
 
 Logo após os tipos primitivos, são os tipos com os quais mais se lida ao usar TypeScript, pois eles correspondem a qualquer valor em JS que possua propriedade.
+
+```typescript
+function printCoord(point: { x: number; y: number }) {
+  console.log(`The coordinate's x value is ${point.x}.`);
+  console.log(`The coordinate's r value is ${point.y}.`);
+}
+
+const route = {
+  x: 42,
+  y: 23,
+};
+
+printCoord(route);
+```
+
+### Propriedades opcionais (`?`)
+
+**OBS.: para especificar um tipo opcional, use `?`.**
+
+```typescript
+function getProfile(name: string, religion?: string) {
+  if (religion && religion.length > 1) {
+    return console.log(`My name is ${name} and my religion is ${religion}`);
+  }
+
+  return console.log(`My name is ${name} and perhaps I am an atheist.`);
+}
+
+getProfile("Tolkien", "Christianism");
+getProfile("Richard Dawkins");
+```
+
+**OBS.: Em TS, ao usar um parâmetro opcional, primeiro cheque se ele é `undefined`.**
+
+## Union Types
+
+A definição de Unions é combinação de tipos. Então, se você cria um tipo formado por dois ou mais tipos, você tem um Union. Eles representam valores que podem ser de qualquer um desses tipos. Os tipos pertencentes a Unions são chamados de _membros_.
+
+### Definição vagamente matemática
+
+Eu entendo os Unions num sentido vagamente matemático. União como uma união/intersecção de determinado conjunto mesmo. Se uma função, por exemplo, aceita um parâmetro que pode ser tanto `string` quanto `number`, é porque o tipo esperado dela encontra-se justamente na intersecção entre strings e números.
+
+Essa noção é vaga porque eu não sou matemático. Se essa minha definição fizer sentido, nem que seja mnemônico, vou adotá-la. Se não fizer sentido nenhum, eu apago e tento fixar o conceito de outra forma.
+
+### Trabalhando com Unions
+
+Seguindo essa definição, o TypeScript só permite uma operação que for comum a todos os membros do union. Portanto, se um union type conter `string | number`, você não pode chamar um `.length` ou um `.toUpperCase()` nele, por exemplo.
 
 # Projetos de exemplo neste repositório
 
