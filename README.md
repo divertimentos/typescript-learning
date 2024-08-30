@@ -1,5 +1,4 @@
 <!--toc:start-->
-
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Tipos por Inferência](#tipos-por-inferência)
@@ -30,13 +29,16 @@
       - [Type annotation no retorno](#type-annotation-no-retorno)
         - [Funções que retornam Promises](#funções-que-retornam-promises)
       - [Funções anônimas](#funções-anônimas)
-  - [Tipando objetos](#tipando-objetos)
-    - [Propriedades opcionais (`?`)](#propriedades-opcionais)
-  - [Union Types](#union-types)
-    - [Definição vagamente matemática](#definição-vagamente-matemática)
-    - [Trabalhando com Unions](#trabalhando-com-unions)
-    - [Aliases para tipos](#aliases-para-tipos)
+    - [Tipando objetos](#tipando-objetos)
+      - [Propriedades opcionais (`?`)](#propriedades-opcionais)
+    - [Union Types](#union-types)
+      - [Definição vagamente matemática](#definição-vagamente-matemática)
+      - [Trabalhando com Unions](#trabalhando-com-unions)
+    - [Aliases para tipos (Type Aliases)](#aliases-para-tipos-type-aliases)
     - [Interfaces](#interfaces)
+    - [Type Assertions](#type-assertions)
+    - [Enums](#enums)
+    - [Primitivos menos comuns](#primitivos-menos-comuns)
 - [Projetos de exemplo neste repositório](#projetos-de-exemplo-neste-repositório)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
@@ -516,7 +518,7 @@ names.forEach((name) => {
 });
 ```
 
-## Tipando objetos
+### Tipando objetos
 
 Logo após os tipos primitivos, são os tipos com os quais mais se lida ao usar TypeScript, pois eles correspondem a qualquer valor em JS que possua propriedade.
 
@@ -534,7 +536,7 @@ const route = {
 printCoord(route);
 ```
 
-### Propriedades opcionais (`?`)
+#### Propriedades opcionais (`?`)
 
 **OBS.: para especificar um tipo opcional, use `?`.**
 
@@ -553,17 +555,17 @@ getProfile("Richard Dawkins");
 
 **OBS.: Em TS, ao usar um parâmetro opcional, primeiro cheque se ele é `undefined`.**
 
-## Union Types
+### Union Types
 
 A definição de Unions é combinação de tipos. Então, se você cria um tipo formado por dois ou mais tipos, você tem um Union. Eles representam valores que podem ser de qualquer um desses tipos. Os tipos pertencentes a Unions são chamados de _membros_.
 
-### Definição vagamente matemática
+#### Definição vagamente matemática
 
 Eu entendo os Unions num sentido vagamente matemático. União como uma união/intersecção de determinado conjunto mesmo. Se uma função, por exemplo, aceita um parâmetro que pode ser tanto `string` quanto `number`, é porque o tipo esperado dela encontra-se justamente na intersecção entre strings e números.
 
 Essa noção é vaga porque eu não sou matemático. Se essa minha definição fizer sentido, nem que seja mnemônico, vou adotá-la. Se não fizer sentido nenhum, eu apago e tento fixar o conceito de outra forma.
 
-### Trabalhando com Unions
+#### Trabalhando com Unions
 
 Seguindo essa definição, o TypeScript só permite uma operação que for comum a todos os membros do union. Portanto, se um union type conter `string | number`, você não pode chamar um `.length` ou um `.toUpperCase()` nele, por exemplo.
 
@@ -584,7 +586,7 @@ welcomePeople(["Yavanna", "Manwë", "Oromë"]);
 welcomePeople("Círdan");
 ```
 
-### Aliases para tipos
+### Aliases para tipos (Type Aliases)
 
 Quando precisar reusar type annotations, use aliases. É a keyword `type`:
 
@@ -665,6 +667,43 @@ interface Bear extends Animal {
   honey: boolean;
 }
 ```
+
+### Type Assertions
+
+Quando você precisa usar um tipo cujo qual o TS não sabe nada a respeito, você pode fazer _type assertions_. Eles são removidos posteriormente pelo compilador, então o TS não é capaz de checar a nulidade deles caso você cometa um typo.
+
+```typescript
+// Sintaxe dos type assertions
+
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+
+const myAnotherCantas = <HTMLCanvasElement>(
+  document.getElementById("main_canvas")
+);
+```
+
+### Enums
+
+Descrevem um valor que poderia ser um conjunto/set de possíveis constantes nomeadas. Não estão relacionados a tipos, diferentemente de todas as outras adições que o TS faz no JS — ou seja, os Enums vão para o runtime pós-compilação. É uma feature do TS que foi passada para o JS. É um assunto mais específico que vai ficar de fora destes estudos iniciais. Aqui estamos focando em ficar proficientes em tipos em TS.
+
+### Primitivos menos comuns
+
+Bigint e Symbol. Segunda vez que tangencio o symbol e ainda acho que eles são como magia de bruxo: todos sabem que existe, mas ninguém nunca viu. A primeira vez foi no curso [Just JavaScript](https://github.com/divertimentos/just-javascript?tab=readme-ov-file#symbols) do Dan Abramov.
+
+Segundo a documentação do TS, "O Symbol é um primitivo em JS usado para criar uma referência global única através da função `Symbol()`".
+
+De vez em quando é interessante a experiência de contrariar os ensinamentos sobre culhão e brio do prof. Clóvis de Barros e conseguir entender 0% de uma explicação que você releu 35 vezes.
+
+```typescript
+const firstName = Symbol("Melkor");
+const lastName = Symbol("Melkor");
+
+if (firstName === lastName) {
+  // O TS pistola na hora e eu não faço ideia do porquê.
+}
+```
+
+Já o `bigint` é um novo tipo primitivo em JS usado para representar números realmente grandes.
 
 # Projetos de exemplo neste repositório
 
