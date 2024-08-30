@@ -1,4 +1,5 @@
 <!--toc:start-->
+
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Tipos por Inferência](#tipos-por-inferência)
@@ -34,6 +35,8 @@
   - [Union Types](#union-types)
     - [Definição vagamente matemática](#definição-vagamente-matemática)
     - [Trabalhando com Unions](#trabalhando-com-unions)
+    - [Aliases para tipos](#aliases-para-tipos)
+    - [Interfaces](#interfaces)
 - [Projetos de exemplo neste repositório](#projetos-de-exemplo-neste-repositório)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
@@ -563,6 +566,105 @@ Essa noção é vaga porque eu não sou matemático. Se essa minha definição f
 ### Trabalhando com Unions
 
 Seguindo essa definição, o TypeScript só permite uma operação que for comum a todos os membros do union. Portanto, se um union type conter `string | number`, você não pode chamar um `.length` ou um `.toUpperCase()` nele, por exemplo.
+
+Nesse caso, a dica é fazer um "narrowing" (algo como "estreitamento") na função.
+
+```typescript
+function welcomePeople(guest: string[] | string) {
+  if (Array.isArray(guest)) {
+    return console.log(
+      `Fala, galera: ${guest.join(" and ")} e o restante do pessoal!`,
+    );
+  }
+
+  return console.log(`Boas-vindas, ${guest.toUpperCase()}. Mesa para um?`);
+}
+
+welcomePeople(["Yavanna", "Manwë", "Oromë"]);
+welcomePeople("Círdan");
+```
+
+### Aliases para tipos
+
+Quando precisar reusar type annotations, use aliases. É a keyword `type`:
+
+```typescript
+type Point = {
+  x: number;
+  y: number;
+  message: string;
+};
+
+const infos = {
+  x: 42,
+  y: 23,
+  message: "De amor nadie se muere",
+};
+
+function printCoord(point: Point) {
+  console.log(`The coordinate's x value is ${point.x}.`);
+  console.log(`The coordinate's y value is ${point.y}.`);
+  console.log(`The message is: ${point.message}!`);
+}
+
+printCoord(infos);
+```
+
+Os aliases podem ser unions também:
+
+```typescript
+type ID = number | string;
+```
+
+### Interfaces
+
+Uma interface é umma outra forma de declarar um tipo que é um objeto.
+
+```typescript
+interface IPlayerProfile {
+  name: string;
+  age: number;
+  teams: string[];
+  jerseyNumber: number[] | number;
+  goatStatus: boolean;
+}
+
+function playerProfile(infos: IPlayerProfile) {
+  const isGoat = infos.goatStatus === true ? "Yeah" : "MJ is the GOAT";
+
+  console.log(
+    `
+- Name: ${infos.name}
+- Age: ${infos.age}
+- Teams: ${infos.teams}
+- Jersey number: ${infos.jerseyNumber}
+- G.O.A.T. status: ${isGoat}
+  `,
+  );
+}
+
+const lebronData = {
+  name: "Lebron Raymone James Sr.",
+  age: new Date().getFullYear() - 1984,
+  teams: ["Cavaliers", "Heat", "Cavaliers", "Lakers"],
+  jerseyNumber: [23, 6],
+  goatStatus: true,
+};
+
+playerProfile(lebronData);
+```
+
+A única diferença entre `types` e `interfaces` é que nos types não se pode reabrir um tipo para adicionar novas propriedades. Interfaces podem sempre ser importadas (_extended_).
+
+```typescript
+interface Animal {
+  name: string;
+}
+
+interface Bear extends Animal {
+  honey: boolean;
+}
+```
 
 # Projetos de exemplo neste repositório
 
