@@ -1,11 +1,14 @@
 console.clear();
 
-interface IPlayerProfile {
+interface IGoatProfile {
+  goatStatus?: boolean;
+}
+
+interface IPlayerProfile extends IGoatProfile {
   name: string;
   age: number;
   teams: string[];
   jerseyNumber: number[] | number;
-  goatStatus: boolean;
 }
 
 function playerProfile(infos: IPlayerProfile) {
