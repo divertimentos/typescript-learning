@@ -1,4 +1,5 @@
 <!--toc:start-->
+
 - [TypeScript Learning](#typescript-learning)
 - [Parte 1/2: TypeScript for JavaScript Programmers](#parte-12-typescript-for-javascript-programmers)
   - [Tipos por Inferência](#tipos-por-inferência)
@@ -671,7 +672,7 @@ interface Bear extends Animal {
 
 ### Type Assertions
 
-Quando você precisa usar um tipo cujo qual o TS não sabe nada a respeito, você pode fazer _type assertions_. Eles são removidos posteriormente pelo compilador, então o TS não é capaz de checar a nulidade deles caso você cometa um typo.
+Quando você precisa usar um tipo do qual o TS não sabe nada a respeito, você pode fazer _type assertions_. Eles são removidos posteriormente pelo compilador, então o TS não é capaz de checar a nulidade deles caso você cometa um typo.
 
 ```typescript
 // Sintaxe dos type assertions
