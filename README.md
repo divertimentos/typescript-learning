@@ -39,6 +39,7 @@
     - [Type Assertions](#type-assertions)
     - [Enums](#enums)
     - [Primitivos menos comuns](#primitivos-menos-comuns)
+  - [Estreitamento (_Narrowing_)](#estreitamento-narrowing)
 - [Projetos de exemplo neste repositório](#projetos-de-exemplo-neste-repositório)
 - [Bibliografia](#bibliografia)
 <!--toc:end-->
@@ -699,11 +700,13 @@ const firstName = Symbol("Melkor");
 const lastName = Symbol("Melkor");
 
 if (firstName === lastName) {
-  // O TS pistola na hora e eu não faço ideia do porquê.
+  // O TS fica pistola na hora e eu não faço ideia do porquê.
 }
 ```
 
 Já o `bigint` é um novo tipo primitivo em JS usado para representar números realmente grandes.
+
+## Estreitamento (_Narrowing_)
 
 # Projetos de exemplo neste repositório
 
