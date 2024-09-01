@@ -705,7 +705,7 @@ if (firstName === lastName) {
 }
 ```
 
-Já o `bigint` é um novo tipo primitivo em JS usado para representar números realmente grandes.
+Já o `bigint` é um novo tipo primitivo em JS usado para representar números realmente grandes!
 
 ## Estreitamento (_Narrowing_)
 
